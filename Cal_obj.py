@@ -1,14 +1,8 @@
 import is_str_float
 
-class Compound_Cal:
-    def __init__(self, principal, interest_rate, compound_rate, years):
-        self.principal = principal
-        self.interest_rate = interest_rate
-        self.compound_rate = compound_rate
-        self.years = years
 
 
-def input_cal():
+'''def input_cal():
 
     principal = input("How much have you invested? ")
     interest_rate = input("Expected interest rate (in decimals)? ")
@@ -19,11 +13,8 @@ def input_cal():
     components = [principal, interest_rate, times_compounded, years]
 
     cal1 = Compound_Cal(principal, interest_rate, times_compounded, years)
+'''
 
-
-def auto_cal():
-
-    cal2 = Compound_Cal(100, .10, 1, 1)
 
 
 

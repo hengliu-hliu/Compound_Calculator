@@ -1,8 +1,9 @@
 import Cal_obj
 import is_str_float
+import Compound_Interest
 
 
-def main():
+'''def main():
 
 
     principal = input("How much have you invested? ")
@@ -36,11 +37,11 @@ def main():
 #    is_str_float.float_list(cal1)
 
 main()
+'''
 
 
 
 
-
-
-
+test = Cal_obj.Compound_Cal(100,0.10,12,10)
+Compound_Interest.input_cal_int(test)
 
