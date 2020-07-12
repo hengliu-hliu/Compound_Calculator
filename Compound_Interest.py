@@ -1,5 +1,5 @@
 #Author: Henry
-#Program to calculate compounded growth
+# Program to calculate compounded growth
 
 # Compound interest Calculator and components
 class compound_cal:
@@ -10,7 +10,6 @@ class compound_cal:
         self.years = years
 
 
-# formula
 def calculate(item):
 
     principal = item.principal
@@ -18,20 +17,18 @@ def calculate(item):
     compound_rate = item.compound_rate
     years = item.years
 
-    amount = principal * (1 + interest_rate / compound_rate) ** (compound_rate * years)
+    amount = principal * (1 + interest_rate /
+                          compound_rate) ** (compound_rate * years)
+    print("This is the compounded amount : $" + str(amount))
 
     return amount
 
-    print("This is the compounded amount : $" + str(amount))
-
-
-#print("This is the NONcompounded amount : $" + str(amount2))
-
-def input_cal():
+def input_parameter():
 
     principal = input("How much have you invested? ")
     interest_rate = input("Expected interest rate (in decimals)? ")
-    compound_rate =  input("How many times is the interest compounded per year?")
+    compound_rate = input(
+        "How many times is the interest compounded per year?")
     years = input("How many years will you be investing? ")
 
     input_num = (principal, interest_rate, compound_rate, years)
@@ -39,22 +36,32 @@ def input_cal():
     return input_num
 
 
+def eval_input(input):
+    output_list = []
 
-test = compound_cal(100,0.10,12,10)
-print(calculate(test))
+    for value in input:
+        try:
+            output_list.append(float(value))
+        except ValueError as e:
+            print("The input \'" + value + "\' isn't recognized")
+            return False
 
-print(input_cal())
-test3 = compound_cal(input_cal())
-print(calucalate(test3))
+    if len(output_list) == 4:
+        return output_list
 
-'''
-test2 = Compound_Cal (
 
-    input("How much have you invested? "),
-    input("Expected interest rate (in decimals)? "),
-    input("How many times is the interest compounded per year?"),
-    input("How many years will you be investing? ")
-    )
+def input_to_obj(input):
+    cal = compound_cal(input[0], input[1], input[2], input[3])
 
-print(test2)
-'''
+    return cal
+
+  #  ***********************************
+
+
+input1 = input_parameter()
+print(input1)
+input1_Ver = eval_input(input1)
+print(input1_Ver)
+Calculator1 = input_to_obj(input1_Ver)
+# print(Calculator1)
+calculate(Calculator1)
