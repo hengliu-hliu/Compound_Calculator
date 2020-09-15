@@ -1,0 +1,81 @@
+<MyGrid>:
+
+    principal: principal
+    interest_rate: interest_rate
+    compound_rate: compound_rate
+    years: years
+
+    test3: test3
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label:
+            text: "Compound Interest Calculator"
+
+        Label:
+            text: "A = P(1 + r/n)^(nt)"
+
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Principal (P)"
+            TextInput:
+                id: principal
+                multiline:False
+
+            Label:
+                text: "Interest Rate (r)"
+            TextInput:
+                id: interest_rate
+                multiline:False
+
+            Label:
+                text: "Compound Rate (n)"
+            TextInput:
+                id: compound_rate
+                multiline:False
+
+            Label:
+                text: "Years (t)"
+            TextInput:
+                id: years
+                multiline:False
+
+        Button:
+            id:test3
+            text: "Calculate"
+            on_press: root.focus_change()
+            on_release: root.btn_calculate()
+            focus: True
+
+        Button:
+            text: "reset"
+            on_press: root.btn_clear()
+
+
+
+
+
+<PopupIcon>:
+
+
+    BoxLayout:
+        orientation: "vertical"
+
+        Label:
+            text: root.results
+
+        Button:
+            text: 'Close me!'
+            on_release: root.dismiss_popup()
+
+
+
+
+
+
+

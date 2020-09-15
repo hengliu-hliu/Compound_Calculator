@@ -1,7 +1,7 @@
 #Author: Henry
 # Program to calculate compounded growth
 
-# Compound interest Calculator and components
+# class containing components of each calcuation
 class compound_cal:
     def __init__(self, principal, interest_rate, compound_rate, years):
         self.principal = principal
@@ -9,31 +9,31 @@ class compound_cal:
         self.compound_rate = compound_rate
         self.years = years
 
-
+# calculates compounded value
+# returns a string
 def calculate(item):
 
-    principal = item.principal
-    interest_rate = item.interest_rate
-    compound_rate = item.compound_rate
-    years = item.years
+    if item != False:
 
-    amount = principal * (1 + interest_rate /
-                          compound_rate) ** (compound_rate * years)
-    print("This is the compounded amount : $" + str(amount))
+        principal = item.principal
+        interest_rate = item.interest_rate
+        compound_rate = item.compound_rate
+        years = item.years
 
-    return amount
+        amount = principal * (1 + interest_rate /
+                              compound_rate) ** (compound_rate * years)
+        #print("This is the compounded amount: $" + str(amount))
 
-def input_parameter():
+        str_amount = "This is the compounded amount: $" + str(amount)
 
-    principal = input("How much have you invested? ")
-    interest_rate = input("Expected interest rate (in decimals)? ")
-    compound_rate = input(
-        "How many times is the interest compounded per year?")
-    years = input("How many years will you be investing? ")
+        return str_amount
 
-    input_num = (principal, interest_rate, compound_rate, years)
+    else:
+        #print("There is an issue with the input.")
+        return "There is an issue with the input"
 
-    return input_num
+# checks if the input is value
+# returns a list of values
 
 
 def eval_input(input):
@@ -49,19 +49,33 @@ def eval_input(input):
     if len(output_list) == 4:
         return output_list
 
+# creates an instance of compound_cal from the input
+
 
 def input_to_obj(input):
-    cal = compound_cal(input[0], input[1], input[2], input[3])
+    if input != False:
+        cal = compound_cal(input[0], input[1], input[2], input[3])
+        return cal
+    else:
+        return False
 
-    return cal
+# wrapper function
+# evaluates, creates instances and runs calcuation
 
-  #  ***********************************
+
+def run_cal(input):
+    input_Ver = eval_input(input)
+    Calculator1 = input_to_obj(input_Ver)
+    result = calculate(Calculator1)
+
+    return result
 
 
-input1 = input_parameter()
+# Test Case
+'''input1 = input_parameter()
 print(input1)
 input1_Ver = eval_input(input1)
 print(input1_Ver)
 Calculator1 = input_to_obj(input1_Ver)
-# print(Calculator1)
 calculate(Calculator1)
+'''
